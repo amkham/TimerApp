@@ -103,15 +103,18 @@ public class TimerFragment extends Fragment implements IViewContract {
 
     @Override
     public void updateTimer(String time) {
-        __timertextView.setText(time);
+        __timertextView.post(() -> __timertextView.setText(time));
+
     }
 
     @Override
     public void updateNotifications(List<Notification> notificationList) {
 
-        Toast.makeText(requireContext(), "Work", Toast.LENGTH_SHORT).show();
+
         MyAdapter _adapter = new MyAdapter(notificationList);
-        __listView.setAdapter(_adapter);
+        __listView.post(() -> {
+            __listView.setAdapter(_adapter);;
+        });
     }
 
     @Override

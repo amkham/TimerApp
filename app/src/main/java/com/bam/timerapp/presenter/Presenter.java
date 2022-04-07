@@ -33,6 +33,7 @@ public class Presenter {
         try {
             __socketService = new SocketService(host, port);
             __socketService.setListener(this::updateView);
+            __socketService.start();
         } catch (IOException e) {
             e.printStackTrace();
         }

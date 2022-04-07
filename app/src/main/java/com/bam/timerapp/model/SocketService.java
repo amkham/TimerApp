@@ -20,21 +20,34 @@ public class SocketService extends Thread {
     private ResponseListener __listener;
 
     private Socket __socket;
-    private final BufferedReader __bufferedReader;
-    private final PrintWriter __printWriter;
+    private BufferedReader __bufferedReader;
+    private PrintWriter __printWriter;
 
     private boolean __disconnect;
 
+    String host;
+    int port;
+
     public SocketService(String string, int port) throws IOException {
-        __socket = new Socket(string, port);
-        __bufferedReader = new BufferedReader(new InputStreamReader(__socket.getInputStream()));
-        __printWriter = new PrintWriter(__socket.getOutputStream(), true);
-        start();
+
+        host =string;
+        this.port = port;
     }
 
+
+    private void  create(String host, int port) throws IOException {
+        __socket = new Socket(host, port);
+        __bufferedReader = new BufferedReader(new InputStreamReader(__socket.getInputStream()));
+        __printWriter = new PrintWriter(__socket.getOutputStream(), true);
+    }
     @Override
     public void run() {
 
+        try {
+            create(host, port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         try {
             while (!__disconnect){
                 String msg = __bufferedReader.readLine();
