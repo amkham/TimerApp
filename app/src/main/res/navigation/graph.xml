@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph"
+    app:startDestination="@id/createConnectionFragment">
+
+    <fragment
+        android:id="@+id/createConnectionFragment"
+        android:name="com.bam.timerapp.view.CreateConnectionFragment"
+        android:label="fragment_create_connection"
+        tools:layout="@layout/fragment_create_connection" >
+        <action
+            android:id="@+id/action_createConnectionFragment_to_timerFragment"
+            app:destination="@id/timerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationCreateFragment"
+        android:name="com.bam.timerapp.view.NotificationCreateFragment"
+        android:label="fragment_notification_create"
+        tools:layout="@layout/fragment_notification_create" >
+        <action
+            android:id="@+id/action_notificationCreateFragment_to_timerFragment"
+            app:destination="@id/timerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/timerFragment"
+        android:name="com.bam.timerapp.view.TimerFragment"
+        android:label="fragment_timer"
+        tools:layout="@layout/fragment_timer" >
+        <action
+            android:id="@+id/action_timerFragment_to_notificationCreateFragment"
+            app:destination="@id/notificationCreateFragment" />
+    </fragment>
+</navigation>

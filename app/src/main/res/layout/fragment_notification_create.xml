@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.NotificationCreateFragment"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10dp">
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:id="@+id/notificationNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Название"/>
+
+    <EditText
+        android:id="@+id/notificationMsgTextView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:inputType="textMultiLine"
+        android:hint="Сообщение" />
+
+    <TimePicker
+        android:id="@+id/notificationTimePicker"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+
+    <Button
+        android:id="@+id/createNotBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Создать"/>
+
+</LinearLayout>
